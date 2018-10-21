@@ -37,14 +37,15 @@ public class JSON {
 
         JSONParser parser = new JSONParser();
 
-            holder restored = new holder();
-            
+        holder restored = new holder();
+
         try {
             JSONObject parsed = (JSONObject) parser.parse(needsParsing);
 
-            restored.name = (String)parsed.get("name");
-            restored.className = (String)parsed.get("class");
-            String convert = (String)parsed.get("week");
+            restored.name = (String) parsed.get("name");
+            restored.className = (String) parsed.get("class");
+            //inexplicable conversion error so I added this line
+            String convert = (String) parsed.get("week");
             restored.weekNumber = Integer.parseInt(convert);
         } catch (ParseException pe) {
             System.out.println("position: " + pe.getPosition());
